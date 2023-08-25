@@ -5,10 +5,10 @@ export const CustomButton = styled(Button)({
     '&.MuiButton-root': {
       '&:hover': {
         backgroundColor: 'white',
-        color: 'black',
+        stroke: 'black',
       },
       '&': {
-        color: 'white',
+        stroke: '#fff',
         borderColor:'white',
       },
     },
