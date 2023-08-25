@@ -13,4 +13,7 @@ body{
 
 .cityInput{
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
