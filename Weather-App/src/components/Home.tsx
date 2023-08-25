@@ -28,7 +28,6 @@ const Home = () => {
         <h1 className='text-center'>iWeather</h1>
       </Grid>
       <Grid item xs={12}>
-        <p>Choose your city to check the weather!</p>
         <Box
           component="form"
           onSubmit={handleSubmit}
@@ -58,14 +57,26 @@ const Home = () => {
       <Grid item>
         {weatherData && (
           <>
+            <h3>{weatherData.name}</h3>
             <p>
               Weather: {weatherData.weather[0].description}
             </p>
+            <p>
+              Humidity: {weatherData.main.humidity}%
+            </p>
+            {/* TEMPERATURA, WORK IN PROGRESS */}
             <p>
               Temperature: {weatherData.main.temp} °C
             </p>
             <p>
               Perceived Temperature: {weatherData.main.feels_like} °C
+            </p>
+            <p>
+              Min: {weatherData.main.temp_min} °C <br />
+              Max: {weatherData.main.temp_max} °C
+            </p>
+            <p>
+              Pressure: {weatherData.main.pressure} bar
             </p>
           </>
           
