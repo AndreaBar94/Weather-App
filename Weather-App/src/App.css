@@ -4,7 +4,7 @@ body{
   flex-direction: column;
 }
 
-.mainBox{
+.box{
   margin-block: 2rem;
   padding-inline: 2rem;
   padding-block: 1rem;
