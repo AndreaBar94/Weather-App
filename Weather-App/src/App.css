@@ -1,3 +1,16 @@
 body{
   background-image: url(assets/images/sky.webp);
+  background-size: cover;
+  flex-direction: column;
+}
+
+.mainBox{
+  margin-block: 2rem;
+  background-color: rgba(22, 22, 19, 0.63);
+  text-align: center;
+  border-radius: 10px;
+}
+
+.cityInput{
+  color: white;
 }
