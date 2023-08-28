@@ -9,7 +9,7 @@ const auth = "62d27c813f254c1c799dabc5dfdd9ada";
 
 export const fetchCityData = (search: string) => async (dispatch: Dispatch) => {
     try {
-      const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${search}&appid=${auth}`);
+      const response = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${search}&appid=${auth}`);
       if (response.ok) {
         const cityData = await response.json();
         dispatch({ type: FETCH_CITY_DATA, payload: cityData });
@@ -37,7 +37,7 @@ export const weatherFetch = async (dispatch: Dispatch, city: CityData) => {
 
 export const fiveDaysForecast = async (dispatch: Dispatch, city: CityData) => {
   try {
-    const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${city[0].lat}&lon=${city[0].lon}&appid=${auth}&units=metric`)
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${city[0].lat}&lon=${city[0].lon}&appid=${auth}&units=metric`)
             if(response.ok){
                 const fiveDaysForecastData = await response.json()
                 dispatch({ type: FETCH_FIVE_DAYS_FORECAST, payload: fiveDaysForecastData });
