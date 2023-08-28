@@ -50,6 +50,7 @@ const CityForecast5Days = ({ forecastData }: { forecastData: FiveDaysForecastDat
       {forecastData && forecastData.list.map((day) => (
         <Box className="infoBoxList" key={day.dt_txt}>
           <h3>{day.dt_txt}</h3>
+          {/* check on server response for changing weather icon */}
           {day.weather[0].main !== null && (
             <div className='weatherInfoList'>
               <img src={weatherIcon(day.weather[0].main)} alt="weatherIcon" width={'50px'} className='iconInfoList'/>
