@@ -44,6 +44,17 @@ const CityForecast5Days = ({ forecastData }: { forecastData: FiveDaysForecastDat
         return error; 
     }
   };
+// // Creiamo un oggetto per raggruppare le previsioni per data
+// const groupedForecasts = forecastData.list.reduce((groups, forecast) => {
+//   if (forecast.dt_txt !== null) {
+//     const date = forecast.dt_txt.split(' ')[0]; // Prendi solo la parte della data
+//     if (!groups[date]) {
+//       groups[date] = [];
+//     }
+//     groups[date].push(forecast);
+//   }
+//   return groups;
+// }, {} as Record<string, typeof forecastData.list>);
 
   return (
     <>
