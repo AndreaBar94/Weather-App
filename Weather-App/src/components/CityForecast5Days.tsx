@@ -16,45 +16,41 @@ import error from '../assets/svgs/GenericError.svg';
 
 const CityForecast5Days = ({ forecastData }: { forecastData: FiveDaysForecastData }) => {
 
-  const weatherIcon = (weatherMain: string | null) => {
-    switch (weatherMain) {
-      case "Rain":
-        return rain;
-      case "Drizzle":
-        return drizzle;
-      case "Clear":
-        return clear;
-      case "Clouds":
-        return clouds;
-      case "Dust":
-        return dust;
-      case "Fog":
-        return fog;
-      case "Smoke":
-        return smoke;
-      case "Snow":
-        return snow;
-      case "Squall":
-        return squall;
-      case "Thunderstorm":
-        return thunderstorm;
-      case "Tornado":
-        return tornado;
-      default:
-        return error; 
-    }
-  };
-// // Creiamo un oggetto per raggruppare le previsioni per data
-// const groupedForecasts = forecastData.list.reduce((groups, forecast) => {
-//   if (forecast.dt_txt !== null) {
-//     const date = forecast.dt_txt.split(' ')[0]; // Prendi solo la parte della data
-//     if (!groups[date]) {
-//       groups[date] = [];
-//     }
-//     groups[date].push(forecast);
-//   }
-//   return groups;
-// }, {} as Record<string, typeof forecastData.list>);
+const weatherIcon = (weatherMain: string | null) => {
+  switch (weatherMain) {
+    case "Rain":
+      return rain;
+    case "Drizzle":
+      return drizzle;
+    case "Clear":
+      return clear;
+    case "Clouds":
+      return clouds;
+    case "Dust":
+      return dust;
+    case "Fog":
+      return fog;
+    case "Smoke":
+      return smoke;
+    case "Snow":
+      return snow;
+    case "Squall":
+      return squall;
+    case "Thunderstorm":
+      return thunderstorm;
+    case "Tornado":
+      return tornado;
+    default:
+      return error; 
+  }
+};
+
+const dateFormatter = (date: number | null) => {
+  if(date !== null){
+    const formattedDate = new Date(date * 1000);
+    return formattedDate.toLocaleDateString();
+  }
+}
 
   return (
     <>
@@ -76,6 +72,7 @@ const CityForecast5Days = ({ forecastData }: { forecastData: FiveDaysForecastDat
         </Box>
       ))} 
     </>
+
   );
 };
 
