@@ -14,7 +14,7 @@ export const fetchCityData = (search: string) => async (dispatch: Dispatch) => {
         const cityData = await response.json();
         dispatch({ type: FETCH_CITY_DATA, payload: cityData });
       } else {
-        alert('Something went wrong, try again');
+        throw new Error('Something went wrong, try again 1');
       }
     } catch (error) {
       console.log(error);
@@ -28,10 +28,10 @@ export const weatherFetch = async (dispatch: Dispatch, city: CityData) => {
       const weatherData = await weatherObj.json();
       dispatch({ type: FETCH_WEATHER_DATA, payload: weatherData });
     } else {
-      throw new Error('Something went wrong, try again');
+      throw new Error('Something went wrong, try again 2');
     }
   } catch (error) {
-    throw error;
+    console.log(error);
   }
 };
 
@@ -40,12 +40,11 @@ export const fiveDaysForecast = async (dispatch: Dispatch, city: CityData) => {
     const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${city[0].lat}&lon=${city[0].lon}&appid=${auth}&units=metric`)
             if(response.ok){
                 const fiveDaysForecastData = await response.json()
-                console.log(fiveDaysForecastData)
                 dispatch({ type: FETCH_FIVE_DAYS_FORECAST, payload: fiveDaysForecastData });
             }else{
-                alert("Could not get forecast")
+              throw new Error('Something went wrong, try again 3');
             }
   } catch (error) {
-    
+    console.log(error);
   }
 }

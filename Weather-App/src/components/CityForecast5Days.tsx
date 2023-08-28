@@ -48,7 +48,7 @@ const CityForecast5Days = ({ forecastData }: { forecastData: FiveDaysForecastDat
   return (
     <>
       {forecastData && forecastData.list.map((day) => (
-        <Box className="infoBoxList" >
+        <Box className="infoBoxList" key={day.dt_txt}>
           <h3>{day.dt_txt}</h3>
           {day.weather[0].main !== null && (
             <div className='weatherInfoList'>

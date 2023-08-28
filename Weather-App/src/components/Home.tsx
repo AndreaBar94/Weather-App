@@ -13,6 +13,7 @@ import CityForecast5Days from './CityForecast5Days';
 
 const Home = () => {
   const [search, setSearch] = useState('');
+  const [isSearchSubmitted, setIsSearchSubmitted] = useState(false);
   const dispatch = useAppDispatch();
   const cityData = useAppSelector((state) => state.cityData);
   const weatherData = useAppSelector((state) => state.weatherData);
@@ -20,15 +21,16 @@ const Home = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSearchSubmitted(true);
     dispatch(fetchCityData(search));
   };
 
   useEffect(() => {
-    if (cityData && cityData.length > 0) {
+    if (isSearchSubmitted && cityData && cityData.length > 0) {
       weatherFetch(dispatch, cityData);
       fiveDaysForecast(dispatch, cityData);
     }
-  }, [cityData, dispatch]);
+  }, [cityData, dispatch]); 
 
   return (
     <>
