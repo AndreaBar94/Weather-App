@@ -1,6 +1,9 @@
 body{
   background-image: url(assets/images/sky.webp);
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
   flex-direction: column;
 }
 
@@ -23,4 +26,10 @@ body{
 
 .magnifier:hover{
   stroke: black;
+}
+
+.infoWeatherPar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

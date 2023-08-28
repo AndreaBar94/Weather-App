@@ -1,15 +1,22 @@
-import { Grid, Box} from '@mui/material';
+import { Grid, Box } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { CustomButton, CustomTextField } from './CustomStyles';
-import { fetchCityData, weatherFetch } from '../redux/actions';
+import { fetchCityData, fiveDaysForecast, weatherFetch } from '../redux/actions';
 import { useAppDispatch, useAppSelector } from '../utils/hooks';
 import SearchIcon from '@mui/icons-material/Search';
+import DeviceThermostatIcon from '@mui/icons-material/DeviceThermostat';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
+import WaterDropIcon from '@mui/icons-material/WaterDrop';
+import SpeedIcon from '@mui/icons-material/Speed';
+import CityForecast5Days from './CityForecast5Days';
 
 const Home = () => {
   const [search, setSearch] = useState('');
   const dispatch = useAppDispatch();
   const cityData = useAppSelector((state) => state.cityData);
   const weatherData = useAppSelector((state) => state.weatherData);
+  const fiveDaysForecastData = useAppSelector((state) => state.fiveDaysForecastData);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -19,6 +26,7 @@ const Home = () => {
   useEffect(() => {
     if (cityData && cityData.length > 0) {
       weatherFetch(dispatch, cityData);
+      fiveDaysForecast(dispatch, cityData);
     }
   }, [cityData, dispatch]);
 
@@ -26,7 +34,7 @@ const Home = () => {
     <>
     <Grid className='box'>
       <Grid item xs={12}>
-        <h1 className='text-center'>iWeather</h1>
+        <h1>iWeather</h1>
       </Grid>
       <Grid item xs={12}>
         <Box
@@ -61,31 +69,53 @@ const Home = () => {
         <Grid item>
           {weatherData && (
             <>
-              <h3>{weatherData.name}</h3>
+                <h3>{weatherData.name}</h3>
               <p>
-                Weather: {weatherData.weather[0].description}
+                Weather: {weatherData.weather[0].main} ({weatherData.weather[0].description})
               </p>
-              <p>
+              <Grid container justifyContent={'center'} alignItems={'center'} direction={'column'}>
+              <p className='infoWeatherPar'>
+                <WaterDropIcon sx={{
+                  marginRight: '5px'
+                }}/> 
                 Humidity: {weatherData.main.humidity}%
               </p>
-              {/* TEMPERATURA, WORK IN PROGRESS */}
-              <p>
-                Temperature: {weatherData.main.temp} °C
-              </p>
-              <p>
-                Perceived Temperature: {weatherData.main.feels_like} °C
-              </p>
-              <p>
-                Min: {weatherData.main.temp_min} °C <br />
+                <p className='infoWeatherPar'>
+                  <DeviceThermostatIcon sx={{
+                  marginRight: '5px'
+                }}/>
+                  Temperature: {weatherData.main.temp} °C 
+                </p>
+                <p className='infoWeatherPar'>
+                  Perceived Temperature: {weatherData.main.feels_like} °C
+                </p>
+                <p className='infoWeatherPar'>
+                  <RemoveIcon/><DeviceThermostatIcon sx={{
+                  marginRight: '5px'
+                }}/>
+                Min: {weatherData.main.temp_min} °C 
+                </p>
+                <p className='infoWeatherPar'>
+                  <AddIcon/><DeviceThermostatIcon sx={{
+                  marginRight: '5px'
+                }}/>
                 Max: {weatherData.main.temp_max} °C
-              </p>
-              <p>
-                Pressure: {weatherData.main.pressure} bar
-              </p>
+                </p>
+                <p className='infoWeatherPar'>
+                  <SpeedIcon sx={{
+                  marginRight: '7px'
+                }}/>
+                 Pressure: {weatherData.main.pressure} bar
+                </p>
+                </Grid>
             </>
-            
           )}
         </Grid>
+      </Grid>
+    )}
+    {weatherData.id != null && (
+      <Grid className='box'>
+        <CityForecast5Days forecastData={fiveDaysForecastData} />
       </Grid>
     )}  
     </>

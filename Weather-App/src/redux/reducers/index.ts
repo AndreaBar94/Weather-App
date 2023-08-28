@@ -1,9 +1,10 @@
-import { CityData, WeatherData } from "../../utils/types";
-import { FETCH_CITY_DATA, FETCH_WEATHER_DATA } from "../actions";
+import { CityData, WeatherData, FiveDaysForecastData } from "../../utils/types";
+import { FETCH_CITY_DATA, FETCH_WEATHER_DATA, FETCH_FIVE_DAYS_FORECAST } from "../actions";
 
 type CityState = {
 	cityData: CityData;
-	weatherData: WeatherData; // Qui dovresti definire il tipo corretto per i dati meteorologici
+	weatherData: WeatherData;
+	fiveDaysForecastData: FiveDaysForecastData;
   };
   
   const initialState: CityState = {
@@ -58,8 +59,53 @@ type CityState = {
 			id: null,
 			name: null,
 			cod: null
-		}
-	,
+	},
+	fiveDaysForecastData: {
+		cod:null ,
+		message: null,
+		cnt:null ,
+		list: [
+			{
+			dt: null,
+			main: {
+				temp: null,
+				feels_like:null ,
+				temp_min:null ,
+				temp_max:null ,
+				pressure:null ,
+				sea_level:null ,
+				grnd_level: null,
+				humidity: null,
+				temp_kf: null
+			},
+			weather: [
+				{
+				id:null ,
+				main: null,
+				description:null,
+				icon:null
+				}
+			],
+			clouds: {
+				all: null
+			},
+			wind: {
+				speed: null,
+				deg:null ,
+				gust: null
+			},
+			visibility: null,
+			pop: null,
+			rain: {
+				'3h':null
+			},
+			sys: {
+				pod: null
+			},
+			dt_txt: null
+			},
+		]
+	}
   };
   
   const cityReducer = (state = initialState, action: Action) => {
@@ -74,6 +120,11 @@ type CityState = {
 		  ...state,
 		  weatherData: action.payload,
 		};
+	  case FETCH_FIVE_DAYS_FORECAST:
+		return {
+			...state,
+			fiveDaysForecastData: action.payload,
+		}
 	  default:
 		return state;
 	}
