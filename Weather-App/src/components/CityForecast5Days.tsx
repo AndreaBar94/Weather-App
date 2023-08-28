@@ -45,15 +45,17 @@ const weatherIcon = (weatherMain: string | null) => {
   }
 };
 
-const dateFormatter = (date: number | null) => {
-  if(date !== null){
-    const formattedDate = new Date(date * 1000);
-    return formattedDate.toLocaleDateString();
-  }
-}
+// date formatter for future use, nice to have
+// const dateFormatter = (date: number | null) => {
+//   if(date !== null){
+//     const formattedDate = new Date(date * 1000);
+//     return formattedDate.toLocaleDateString();
+//   }
+// }
 
   return (
     <>
+    <h3>Forecast for the next hours:</h3>
       {forecastData && forecastData.list.map((day) => (
         <Box className="infoBoxList" key={day.dt_txt}>
           <h3>{day.dt_txt}</h3>
