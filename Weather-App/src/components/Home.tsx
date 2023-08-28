@@ -25,6 +25,10 @@ const Home = () => {
     dispatch(fetchCityData(search));
   };
 
+  const handleBackToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   useEffect(() => {
     if (isSearchSubmitted && cityData && cityData.length > 0) {
       weatherFetch(dispatch, cityData);
@@ -119,7 +123,8 @@ const Home = () => {
       <Grid className='box'>
         <CityForecast5Days forecastData={fiveDaysForecastData} />
       </Grid>
-    )}  
+    )} 
+    <button onClick={handleBackToTop} className="backToTop">Back To Top</button>
     </>
   )
 }
