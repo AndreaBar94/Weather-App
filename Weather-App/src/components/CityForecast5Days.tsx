@@ -3,15 +3,15 @@ import { Box } from '@mui/material';
 import DeviceThermostatIcon from '@mui/icons-material/DeviceThermostat';
 import rain from '../assets/svgs/Rain.svg';
 import drizzle from '../assets/svgs/Drizzle.svg';
-import clear from '../assets/svgs/clear.svg';
-import clouds from '../assets/svgs/clouds.svg';
-import dust from '../assets/svgs/dust.svg';
-import fog from '../assets/svgs/fog.svg';
-import smoke from '../assets/svgs/smoke.svg';
-import snow from '../assets/svgs/snow.svg';
-import squall from '../assets/svgs/squall.svg';
-import thunderstorm from '../assets/svgs/thunderstorm.svg';
-import tornado from '../assets/svgs/tornado.svg';
+import clear from '../assets/svgs/Clear.svg';
+import clouds from '../assets/svgs/Clouds.svg';
+import dust from '../assets/svgs/Dust.svg';
+import fog from '../assets/svgs/Fog.svg';
+import smoke from '../assets/svgs/Smoke.svg';
+import snow from '../assets/svgs/Snow.svg';
+import squall from '../assets/svgs/Squall.svg';
+import thunderstorm from '../assets/svgs/Thunderstorm.svg';
+import tornado from '../assets/svgs/Tornado.svg';
 import error from '../assets/svgs/GenericError.svg';
 
 const CityForecast5Days = ({ forecastData }: { forecastData: FiveDaysForecastData }) => {
