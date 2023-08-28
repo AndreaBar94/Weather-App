@@ -1,18 +1,18 @@
 import { FiveDaysForecastData } from '../utils/types';
 import { Box } from '@mui/material';
 import DeviceThermostatIcon from '@mui/icons-material/DeviceThermostat';
-import rain from '../assets/svgs/rain.svg';
-import drizzle from '../assets/svgs/drizzle.svg';
-import clear from '../assets/svgs/clear.svg';
-import clouds from '../assets/svgs/clouds.svg';
-import dust from '../assets/svgs/dust.svg';
-import fog from '../assets/svgs/fog.svg';
-import smoke from '../assets/svgs/smoke.svg';
-import snow from '../assets/svgs/snow.svg';
-import squall from '../assets/svgs/squall.svg';
-import thunderstorm from '../assets/svgs/thunderstorm.svg';
-import tornado from '../assets/svgs/tornado.svg';
-import error from '../assets/svgs/genericError.svg';
+import rain from '../../public/rain.svg';
+import drizzle from '../../public/drizzle.svg';
+import clear from '../../public/clear.svg';
+import clouds from '../../public/clouds.svg';
+import dust from '../../public/dust.svg';
+import fog from '../../public/fog.svg';
+import smoke from '../../public/smoke.svg';
+import snow from '../../public/snow.svg';
+import squall from '../../public/squall.svg';
+import thunderstorm from '../../public/thunderstorm.svg';
+import tornado from '../../public/tornado.svg';
+import error from '../../public/genericError.svg';
 
 const CityForecast5Days = ({ forecastData }: { forecastData: FiveDaysForecastData }) => {
 
