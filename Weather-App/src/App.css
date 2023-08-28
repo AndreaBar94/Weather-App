@@ -33,3 +33,19 @@ body{
   align-items: center;
   justify-content: center;
 }
+
+.weatherInfoList{
+  display: flex;
+  justify-content: center;
+  align-items: center ;
+}
+
+.iconInfoList{
+  margin-right: 1rem;
+}
+
+.infoBoxList{
+  margin-block: 1rem;
+  border: 1px solid;
+  border-radius: 10px;
+}

@@ -64,7 +64,7 @@ const Home = () => {
         </Box>
       </Grid>
     </Grid>
-    {weatherData.id != null && (
+    {weatherData.id !== null && (
       <Grid className='box'>
         <Grid item>
           {weatherData && (
@@ -113,7 +113,7 @@ const Home = () => {
         </Grid>
       </Grid>
     )}
-    {weatherData.id != null && (
+    {weatherData.id !== null && (
       <Grid className='box'>
         <CityForecast5Days forecastData={fiveDaysForecastData} />
       </Grid>
