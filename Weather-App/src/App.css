@@ -7,7 +7,17 @@ body{
   flex-direction: column;
 }
 
+.initialBoxState{
+  margin-block: 18rem;
+  padding-inline: 2rem;
+  padding-block: 1rem;
+  background-color: rgba(22, 22, 19, 0.63);
+  text-align: center;
+  border-radius: 10px;
+}
+
 .box{
+  transition: 300ms;
   margin-block: 2rem;
   padding-inline: 2rem;
   padding-block: 1rem;
@@ -55,3 +65,4 @@ body{
   bottom: 20px;
   right: 20px;
 }
+

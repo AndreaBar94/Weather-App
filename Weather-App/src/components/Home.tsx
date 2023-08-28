@@ -38,7 +38,7 @@ const Home = () => {
 
   return (
     <>
-    <Grid className='box'>
+    <Grid className={weatherData.id === null ? 'initialBoxState' : 'box'}>
       <Grid item xs={12}>
         <h1>iWeather</h1>
       </Grid>
